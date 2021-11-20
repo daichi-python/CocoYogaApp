@@ -1,0 +1,121 @@
+.home-container{
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.next-lesson{
+    width: 70%;
+    background: linear-gradient(135deg, white, 60%, #EEEEEE);
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding-top: 2rem;
+    border-radius: 5px;
+}
+
+.lesson-detail{
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    border: 0.1em groove white;
+    border-radius: 5px;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding: 1rem 3.5rem;
+}
+
+.detail{
+    display: flex;
+}
+
+.calendar-container{
+    width: 80%;
+    margin: 5rem;
+    background: linear-gradient(135deg, white, 60%, #EEEEEE);
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.calendar-btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.btn{
+    padding: 0.5rem 1.5rem;
+    border: 0.1rem solid white;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.btn:hover{
+    box-shadow: 0.1rem 0.1rem 0.3em rgba(0, 0, 0, 0.3);
+}
+
+#calendar-box{
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+    text-align: center;
+}
+
+.date-card{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    border: 0.1rem solid white;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+    background: linear-gradient(140deg, #FFFFCC, #EEEEEE);
+    cursor: pointer;
+}
+
+.date-card:hover{
+    box-shadow: 0.1rem 0.1rem 0.3em rgba(0, 0, 0, 0.3);
+}
+
+.lesson-list-container{
+    width: 70%;
+    background: linear-gradient(135deg, white, 60%, #EEEEEE);
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding: 2rem 0 4rem 0;
+    border-radius: 5px;
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.list-container{
+    width: 80%;
+}
+
+.list-container a{
+    text-decoration: none;
+    color: black;
+}
+
+.lesson-box{
+    margin-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.left-box{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-left: 0.4rem groove rgb(223, 191, 53);
+    padding-left: 1rem;
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}
+
+.d-none{
+    display: none;
+}

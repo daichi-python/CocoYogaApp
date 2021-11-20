@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/lesson.css' %}">
+    <title>CocoYoga/Lesson</title>
+</head>
+<body>
+    {% include 'yogapp/header.html' %}
+    <div class="f-center">
+        <div class="container w-80">
+            <h1>レッスン受講</h1>
+            {% if lesson.is_accessible_lesson %}
+            <div class="g-split">
+                <div class="movie">
+                    <iframe src="{{ lesson.whereby }}" allow="camera; microphone; fullscreen; speaker; display-capture"></iframe>
+                </div>
+                <div class="pose" id="pose">
+                    <h2>ポーズ詳細</h2>
+                    <div class="f-split">
+                        <h2 class="allow" id="left">＜</h2>
+                        <h2 class="allow" id="right">＞</h2>
+                    </div>
+                    <div class="description" id="description">
+                        <h3>使い方</h3>
+                        <p>ポーズの説明を一つ一つ見ることができます。<br>上の矢印を押すとポーズを入れ替えられます。</p>
+                    </div>
+                    <div id="target">
+                        {% for pose in poses %}
+                        <div class="poses invisible">
+                            <h3>{{ pose.name }}</h3>
+                            <p>{{ pose.detail }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="f-center">
+                <div class="not-accessible">
+                    <h1>このレッスンにはアクセスできません。</h1>
+                    <a href="{% url 'home' %}">レッスン登録へ</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{% static 'yogapp/pose.js' %}"></script>
+</body>
+</html>

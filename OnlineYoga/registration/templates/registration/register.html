@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'registration/register.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <title>新規登録</title>
+</head>
+<body>
+    <div class="title">
+        <h1>CocoYoga</h1>
+    </div>
+    <div class="container">
+        <div class="register-container">
+            <h1>新規登録</h1>
+            <form action="" method="POST">
+                {% for field in form %}
+                <div class="label-box">
+                    <div class="label-container">
+                        <p class="label">{{ field.label }}:</p>
+                        {{ field }}
+                    </div>
+                    {{ field.errors }}
+                </div>
+                {% endfor %}
+                <br>
+                <button class="btn" type="submit"><span>登録してログイン</span></button>
+                <input type="hidden" name="next" value="{{ next }}">
+                {% csrf_token %}
+            </form>
+            <div class="user">
+                <a href="{% url 'login' %}">登録済みの方はこちら</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

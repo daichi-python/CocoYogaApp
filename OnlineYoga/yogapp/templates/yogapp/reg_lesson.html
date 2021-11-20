@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/reg_lesson.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <title>レッスン登録</title>
+</head>
+<body>
+    {% include 'yogapp/header.html' %}
+    <div class="reg-lesson">
+        <div class="reg-container">
+            <h1>レッスン登録</h1>
+            <div class="f-center">
+                <div class="lesson-block">
+                    <form method="post">
+                        <h2>New Lesson</h2>
+                        <div class="detail-container">
+                            <div class="lesson-detail">
+                                <div class="get date">
+                                    <p>レッスン日時</p>
+                                    {% csrf_token %}
+                                    {{ form.lesson_date }}
+                                    {% for error in form.lesson_date.errors %}
+                                    {% if forloop.counter <= 1 %}
+                                    <p class="error">{{ error }}</p>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="get lesson-style">
+                                    <p>レッスンスタイル</p>
+                                    {{ form.style }}
+                                </div>
+                                <div class="get">
+                                    <p>料金</p>
+                                    {{ form.price }}
+                                    {% for error in form.price.errors %}
+                                    {% if forloop.counter <= 1 %}
+                                    <p class="error">{{ error }}</p>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="f-center">
+                            <div class="poses">
+                                <p>ポーズ</p>
+                                <ul class="pose-list">
+                                    {% for pose in form.poses %}
+                                    <li class="pose">
+                                        {{ pose.tag }}
+                                        <label for="{{ pose.id_for_label }}">{{ pose.choice_label }}</label>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="register">登録</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

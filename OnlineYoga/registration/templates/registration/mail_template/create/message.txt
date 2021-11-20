@@ -1,0 +1,10 @@
+{{ user.email }} 様
+
+会員登録手続きを行っていただき、ありがとうございます。
+まだ会員登録手続きは終了していません。
+下記URLよりサイトにアクセスして、会員登録を完了してください。
+
+本登録用URL
+{{ protocol }}://{{ domain }}{% url 'register_complete' token %}
+
+CocoYoga運営

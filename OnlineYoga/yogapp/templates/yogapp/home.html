@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/home.css' %}">
+    <title>Yogapp</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="f-center">
+        <div class="home-container">
+            <h1>ホーム</h1>
+            <div class="f-center">
+                <div class="next-lesson">
+                    <h2>次回レッスン予定</h2>
+                    <div class="f-center">
+                        <div class="lesson-detail">
+                            {% if lesson %}
+                            <div class="detail">
+                                <p>レッスン日時：</p>
+                                <p>{{ lesson.lesson_date | date:"m/d H:i" }}</p>
+                            </div>
+                            <div class="detail">
+                                <p>レッスンランク：</p>
+                                <p>{{ lesson.style.get_rank_display }}</p>
+                            </div>
+                            {% if lesson.is_accessible_lesson %}
+                            <div class="join">
+                                <a href="{% url 'lesson' lesson.id %}">レッスンに参加する</a>
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            <div>
+                                <p>レッスンが登録されていません。</p>
+                                <a href="#lesson-list">登録はこちら</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="f-center">
+                <div id="lesson-list" class="lesson-list-container">
+                    <h2>レッスン一覧</h2>
+                    <div class="f-center">
+                        <div class="list-container">
+                            {% for lesson in object_list %}
+                            <a href="{% url 'purchase' lesson.id %}">
+                            <div class="lesson-box">
+                                <div class="left-box">
+                                    <h3>{{ lesson.lesson_date | date:"m/d  H:i" }}</h3>
+                                </div>
+                                <div class="right-box">
+                                    <p>レッスンランク：{{ lesson.style.get_rank_display }}</p>
+                                    <p>参加可能人数：{{ lesson.get_number_of_participants }}/{{ lesson.style.capacity }}</p>
+                                    <p>インストラクター：{{ lesson.instructer.user }}</p>
+                                </div>
+                            </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

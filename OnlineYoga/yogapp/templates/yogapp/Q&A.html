@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/Q&A.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <title>Q&A</title>
+</head>
+<body>
+    {% include 'yogapp/header.html' %}
+    <div class="f-center">
+        <div class="qanda-container">
+            <h1>お問い合わせ</h1>
+            <form action="" method="post">
+                {% for field in form %}
+                <div class="getter">
+                    <p>{{ field.label }}</p>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <div class="btn-question">
+                    <button type="submit">送信</button>
+                </div>
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+    <div class="f-center">
+        <div class="qanda-container">
+            <h1>Q&A</h1>
+            <div class="qanda-detail">
+                {% for qanda in object_list %}
+                <div class="qanda">
+                    <div class="detail-box">
+                        <h3>Q{{ forloop.counter }}. </h3>
+                        <p> {{ qanda.question.detail }}</p>
+                    </div>
+                    <div class="detail-box">
+                        <h3>A{{ forloop.counter }}. </h3>
+                        <p> {{ qanda.answer.detail }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

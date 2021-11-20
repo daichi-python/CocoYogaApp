@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'registration/register_complete.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <title>登録完了</title>
+</head>
+<body>
+    <div class="title">
+        <h1>CocoYoga</h1>
+    </div>
+    <div class="f-center">
+        <div class="container">
+            <h1>登録完了</h1>
+            <div class="detail">
+                <p>会員登録が完了しました。</p>
+                <p>登録したユーザーIDとパスワードでログインしてください。</p>
+                <a href="{% url 'login' %}">ログイン</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

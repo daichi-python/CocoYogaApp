@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/pur_lesson.css' %}">
+    <title>レッスン購入</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="pur-lesson">
+        <div class="pur-container">
+            <h1>レッスン購入</h1>
+            <div class="flex-center">
+                <div class="lesson-block">
+                    <div class="flex-center">
+                        <div class="w-80">
+                            <h2 id="new-lesson">New Lesson</h2>
+                            {% if lesson.is_past_lesson %}
+                            <div class="boxes">
+                                <h2 class="error">このレッスンは終了しています。</h2>
+                            </div>
+                            {% else %}
+                            <p>  レッスン日時：<span>{{ lesson.lesson_date | date:"m/d H:i" }}</span></p>
+                            <div class="boxes">
+                                <div class="half-box">
+                                    <div class="lesson-detail">
+                                        <h2>レッスン詳細</h2>
+                                        <p>レッスンランク：{{ lesson.style.rank }}</p>
+                                        <p>参加可能人数：{{ lesson.get_number_of_participants }}/{{ lesson.style.capacity }}</p>
+                                        <p>インストラクター：{{ lesson.instructer.user }}</p>
+                                    </div>
+                                </div>
+                                <div class="half-box">
+                                    <form action="" method="POST" class="payment">
+                                        <h2>支払い</h2>
+                                        <p>料金：￥{{ lesson.price }}</p>
+                                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                            data-key="{{ public_key }}"
+                                            data-amount="{{ lesson.price }}"
+                                            data-name="CocoYoga"
+                                            data-description="{{ lesson.lesson_date }}"
+                                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                            data-locale="ja"
+                                            data-currency="jpy"
+                                            data-email="{{ user.email }}">
+                                        </script>
+                                        {% csrf_token %}
+                                    </form>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

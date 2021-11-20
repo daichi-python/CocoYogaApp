@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/instructer.css' %}">
+    <title>インストラクター</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="f-center">
+        <div class="w-90">
+            <div class="f-center">
+                <div class="container w-60">
+                    <h2>レッスン登録</h2>
+                    <div class="register">
+                        <a href="{% url 'register' %}">登録画面へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2>集計</h2>
+                <div class="f-center">
+                    <div class="total-box">
+                        <h3>今月の集計</h3>
+                        <div class="pl-2">
+                            <p>レッスン回数：　{{ this_month_lesson.count }}回</p>
+                            <p>受講人数：　{{ this_month_count }}人</p>
+                        </div>
+                    </div>
+                    <div class="total-box">
+                        <h3>総集計</h3>
+                        <div class="pl-2">
+                            <p>総レッスン回数：　{{ object_list.count }}回</p>
+                            <p>受講総人数：　{{ total_count }}人</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2>レッスン一覧</h2>
+                <div class="f-center">
+                    <div class="lesson-box">
+                        <h3>過去レッスン</h3>
+                        {% if past_lesson %}
+                        <div class="g-split">
+                            {% for lesson in past_lesson %}
+                            <div class="lesson">
+                                <p>{{ forloop.counter }}</p>
+                                <div class="detail">
+                                    <p>{{ lesson.lesson_date.date }}</p>
+                                    <p>ランク：{{ lesson.style.get_rank_display }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="nothing">
+                            <h2>レッスン履歴はありません。</h2>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="lesson-box">
+                        <h3>未来レッスン</h3>
+                        {% if future_lesson %}
+                        <div class="g-split">
+                            {% for lesson in future_lesson %}
+                            <div class="lesson">
+                                <p>{{ forloop.counter }}</p>
+                                <div class="detail">
+                                    <p>{{ lesson.lesson_date.date }}</p>
+                                    <p>ランク：{{ lesson.style.get_rank_display }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="nothing">
+                            <h2>レッスン予定はありません。</h2>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

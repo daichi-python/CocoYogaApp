@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/mypage.css' %}">
+    <title>マイぺージ</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="f-center">
+        <div class="mypage-container">
+            <h1>マイページ</h1>
+            <div class="f-center">
+                <div class="w-80">
+                    <div class="lesson-container">
+                        <h2>レッスン一覧</h2>
+                        <div class="f-center">
+                            <div class="lessons">
+                                <h2>受講済みレッスン</h2>
+                                {% if object_list %}
+                                <div class="g-half">
+                                {% for lesson in object_list %}
+                                    <div class="lesson-box f-split">
+                                        <h3>{{ forloop.counter }}</h3>
+                                        <div>
+                                            <p>レッスン日時：{{ lesson.lesson_date | date:"m/d H:i" }}</p>
+                                            <p>レッスンランク：{{ lesson.style.get_rank_display }}</p>
+                                            <p>インストラクター：{{ lesson.instructer.user }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                                {% else %}
+                                <div class="empty">
+                                    <h2>まだレッスンを受講していません。</h2>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="f-center">
+                            <div class="lessons">
+                                <h2>購入したレッスン</h2>
+                                {% if future_lessons %}
+                                <div class="g-half">
+                                {% for lesson in future_lessons %}
+                                    <div class="lesson-box f-split">
+                                        <h3>{{ forloop.counter }}</h3>
+                                        <div>
+                                            <p>レッスン日時：{{ lesson.lesson_date | date:"m/d H:i" }}</p>
+                                            <p>レッスンランク：{{ lesson.style.get_rank_display }}</p>
+                                            <p>インストラクター：{{ lesson.instructer.user }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                                {% else %}
+                                <div class="empty">
+                                    <h2>購入したレッスンはありません。</h2>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

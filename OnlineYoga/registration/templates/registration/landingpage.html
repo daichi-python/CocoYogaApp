@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'registration/landingpage.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'registration/jquery.js' %}"></script>
+    <title>CocoYogaへようこそ</title>
+</head>
+<body>
+    <header>
+        <div class="header-bar">
+            <h1 class="title">CocoYoga</h1>
+            <a href="{% url 'user_register' %}"><h1 class="header-btn">会員登録</h1></a>
+            <a href="{% url 'login' %}"><h1 class="header-btn">ログイン</h1></a>
+        </div>
+    </header>
+    <div class="land-container">
+        <div class="image-container">
+            <img src="{% static 'registration/images/yoga1.jpg' %}">
+            <h1>CocoYoga</h1>
+            <p>～オンラインヨガサイト～</p>
+        </div>
+        <div class="detail-container">
+            <div class="cards detail-card">
+                <img src="{% static 'registration/images/yoga2.jpg' %}">
+                <div class="box">
+                    <h2>CocoYogaとは</h2>
+                    <p>・オンラインでヨガができるサービスです。<br>・レッスン画面の横にポーズの説明があるため、<br>よりヨガへの理解を深められます。</p>
+                </div>
+            </div>
+        </div>
+        <div class="payment-container">
+            <div class="cards payment-card">
+                <img src="{% static 'registration/images/yoga4.jpg' %}">
+                <div class="box">
+                    <h2>支払い方法</h2>
+                    <p>・PayPay<br>・クレジットカード</p>
+                    <p>その他支払い方法も追加予定です。</p>
+                </div>
+            </div>
+        </div>
+        <div class="fee-container">
+            <div class="cards fee-card">
+                <img src="{% static 'registration/images/yoga3.jpg' %}">
+                <div class="box">
+                    <h2>料金</h2>
+                    <p>・無料会員：<br>　　レッスン1回 500円</p>
+                    <p>※月額課金制も実装予定です</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="register-container">
+        <div class="register">
+            <h1>まずは登録！</h1>
+            <div class="btn">
+                <div class="bottom-btn">
+                    <a href="{% url 'user_register' %}">
+                    <h3>新規登録</h3>
+                    </a>
+                </div>
+                <div id="login-btn" class="bottom-btn">
+                    <a href="{% url 'login' %}">
+                    <h3>ログイン</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

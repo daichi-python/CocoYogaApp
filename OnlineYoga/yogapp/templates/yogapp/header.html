@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<div class="page-header">
+    <div class="ph-box">
+        <div class="left-block">
+            <h1>CocoYoga</h1>
+            <ul class="ph-menu">
+                <li><a href="{% url 'home' %}">ホーム</a></li>
+                <li><a href="{% url 'mypage' %}">マイページ</a></li>
+                <li><a href="{% url 'qanda' %}">Q&A</a></li>
+                {% if user.is_instructer %}
+                <li><a href="{% url 'instructer' %}">インストラクター</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="right-block">
+            {% if user.is_authenticated %}
+            <p class="user">ユーザー：　{{ user.get_username }}</p>
+            {% endif %}
+            <button><a href="{% url 'logout' %}">ログアウト</a></button>
+        </div>
+    </div>
+</div>
