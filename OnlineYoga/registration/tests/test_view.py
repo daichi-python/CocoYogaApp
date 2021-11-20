@@ -23,7 +23,7 @@ class RegistrationViewTest(TestCase):
 
     def test_logout_view(self):
         response = self.client.get(reverse("logout"))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_register_view(self):
         response = self.client.get(reverse("user_register"))

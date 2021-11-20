@@ -66,10 +66,10 @@ class RegisterLessonViewTest(TestCase):
         self.client_user = ModelCreate.login_user(user)
         self.client_inst = ModelCreate.login_user(instructer)
 
-        future = timezone.now() + datetime.timedelta(1)
+        future = timezone.now() + datetime.timedelta(days=1)
         self.future = ModelCreate.create_datetime_string(future)
         
-        past = timezone.now() + datetime.timedelta(-1)
+        past = timezone.now() + datetime.timedelta(days=-1)
         self.past = ModelCreate.create_datetime_string(past)
 
         ModelCreate.create_lesson_style()
@@ -79,7 +79,7 @@ class RegisterLessonViewTest(TestCase):
         content = {
             "style": "normal",
             "lesson_date": self.future,
-            "poses": "1",
+            "poses": Pose.objects.all(),
             "price": "1000",
         }
         self.client_inst.post(reverse("register"), content)
@@ -89,7 +89,7 @@ class RegisterLessonViewTest(TestCase):
         content = {
             "style": "normal",
             "lesson_date": self.future,
-            "poses": "1",
+            "poses": Pose.objects.all(),
             "price": "1000"
         }
         self.client_user.post(reverse("register"), content)
@@ -99,7 +99,7 @@ class RegisterLessonViewTest(TestCase):
         content = {
             "style": "normal",
             "lesson_date": self.past,
-            "poses": "1",
+            "poses": Pose.objects.all(),
             "price": "1000"
         }
         self.client_user.post(reverse("register"), content)
@@ -109,7 +109,7 @@ class RegisterLessonViewTest(TestCase):
         content = {
             "style": "normal",
             "lesson_date": self.past,
-            "poses": "1",
+            "poses": Pose.objects.all(),
             "price": "test"
         }
         self.client_user.post(reverse("register"), content)
@@ -254,10 +254,9 @@ class ViewTestByAuthenticatedUser(TestCase):
         self.instructer = ModelCreate.create_instructer(self.user)
 
     def test_authenticated_user_access_purchase_view(self):
-        lesson = ModelCreate.create_lesson(self.instructer, 30)
+        lesson = ModelCreate.create_lesson(self.instructer, days=30)
         response = self.client.get(reverse("purchase", args=(lesson.id,)))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, lesson.id)
 
     def test_authenticated_user_access_home_view(self):
         response = self.client.get(reverse("home"))

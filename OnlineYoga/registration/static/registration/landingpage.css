@@ -242,4 +242,70 @@ header h1:hover{
     display: none;
 }
 
+@media (max-width: 1200px){
+    header{
+        width: 90%;
+    }
 
+    .image-container h1{
+        font-size: 8rem;
+        top: 5rem;
+    }
+
+    .image-container p{
+        font-size: 3rem;
+        top: 25rem;
+    }
+
+    .payment-container, .fee-container, .detail-container{
+        display: block;
+        margin: 5rem;
+    }
+
+    .cards{
+        width: 98%;
+    }
+
+    .register-container{
+        width: 97%;
+    }
+}
+
+@media (max-width: 768px){
+    header{
+        width: 86%;
+    }
+
+    .header-bar{
+        margin-right: 0;
+    }
+
+    .header-btn{
+        margin-right: 1rem;
+    }
+
+    .image-container h1{
+        font-size: 5rem;
+        top: 7rem;
+    }
+
+    .image-container p{
+        font-size: 2rem;
+        top: 23rem;
+    }
+
+    .payment-container, .fee-container, .detail-container{
+        display: block;
+        margin: 4rem;
+    }
+
+    .cards{
+        width: 95%;
+        display: block;
+        padding: 0 2rem;
+    }
+
+    .register-container{
+        width: 97%;
+    }
+}

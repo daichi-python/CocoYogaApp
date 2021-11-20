@@ -18,17 +18,17 @@ import environ
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, ".env"))
+env.read_env("../.env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '85c%6!^oiaqr9bg8k@&mz!w8qy7_3*tcy_=3lxucx(f=x@u4hy'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
 
@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "stripe",
     "registration.apps.RegistrationConfig",
     "yogapp.apps.YogappConfig",
     'django.contrib.admin',
@@ -82,16 +83,8 @@ WSGI_APPLICATION = 'OnlineYoga.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cocoyoga',
-        'USER': 'root',
-        'PASSWORD': 'fainal30',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    "default": env.db(),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -143,12 +136,14 @@ LOGIN_URL = "landing"
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "landing"
 
-EMAIL_HOST = "smtp22.gmoserver.jp"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "cocoyoga@ihciad.com"
-EMAIL_HOST_PASSWORD = "Dt190416&0630&"
-EMAIL_USE_TLS = True
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = env("EMAIL_USE_TLS")
 
 
-STRIPE_PUBLIC_KEY = "pk_test_51JwQuiEqOKjDniZOpa4t0JvQyDIIDzFCw31jzExnd2dl3Y6qfpt8AmLSjqB4mtz0MGfRBQxVIbTrlqMfrwP0IjTs003jYJoOHy"
-STRIPE_SECRET_KEY = "sk_test_51JwQuiEqOKjDniZO7EfIYDNnRfHej7ao3bH0lzaJFQZJEHsb1oeG5FpsTZOlUVYkLpVPkPK7TsKXSEkmosxYLPDp00o0PVXYIv"
+STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+
+WHEREBY_KEY = env("WHEREBY_KEY")

@@ -1,7 +1,6 @@
-from django.contrib.auth import get_user_model
-from django.conf import settings
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView, DetailView, ListView, View
+from django.conf import settings
+from django.views.generic import DetailView, ListView
 from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils import timezone
@@ -143,7 +142,7 @@ class RegisterLessonView(LoginRequiredMixin, FormView):
 
     @staticmethod
     def create_lesson(lesson_date):
-        API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmFwcGVhci5pbiIsImF1ZCI6Imh0dHBzOi8vYXBpLmFwcGVhci5pbi92MSIsImV4cCI6OTAwNzE5OTI1NDc0MDk5MSwiaWF0IjoxNjM1ODU2NjI4LCJvcmdhbml6YXRpb25JZCI6MTM4NDY0LCJqdGkiOiJmY2QyM2Y1OS1hNTM2LTQ3MDItODMxMy04ZWY5NGRjZjgzMzgifQ.o-oersIo3LxpH27jIIvXZ38pGCklihPuwgkfDKkt0vk"
+        API_KEY = settings.WHEREBY_KEY
         URL = "https://api.whereby.dev/v1/meetings"
 
         data = {

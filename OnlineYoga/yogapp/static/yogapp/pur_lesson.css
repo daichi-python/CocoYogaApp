@@ -35,26 +35,6 @@ h1{
     margin: 3rem 0;
 }
 
-.purchase{
-    width: 10%;
-    float: right;
-    margin-bottom: 2rem;
-    border: 0.1em groove white;
-    background: linear-gradient(120deg, #D3D3D3, #DCDCDC);
-    border-radius: 5px;
-    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-.purchase:hover{
-    box-shadow: 0.1rem 0.1rem 0.5em rgba(0, 0, 0, 0.3);
-}
-
-.btn-purchase{
-    font-size: 1rem;
-    font-weight: bold;
-}
-
 .half-box{
     padding: 2rem;
     border: 0.1em groove white;
@@ -64,6 +44,11 @@ h1{
 
 .half-box h2{
     border-bottom: 0.3rem solid rgba(131, 131, 131, 0.7);
+}
+
+.payment p{
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .w-80{
