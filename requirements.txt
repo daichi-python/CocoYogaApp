@@ -1,0 +1,140 @@
+-r requirements-dev.txt
+
+absl-py @ file:///C:/ci/absl-py_1615411229697/work
+altgraph @ file:///home/linux1/recipes/ci/altgraph_1611055153312/work
+asgiref @ file:///tmp/build/80754af9/asgiref_1617740417847/work
+astroid @ file:///C:/ci/astroid_1613501047216/work
+astunparse==1.6.3
+awscli==1.22.8
+beautifulsoup4 @ file:///home/linux1/recipes/ci/beautifulsoup4_1610988766420/work
+blinker==1.4
+botocore==1.23.8
+brotlipy==0.7.0
+cachetools @ file:///tmp/build/80754af9/cachetools_1611600262290/work
+certifi==2021.10.8
+cffi @ file:///C:/ci/cffi_1606255208697/work
+chardet @ file:///C:/ci/chardet_1607690654534/work
+click @ file:///home/linux1/recipes/ci/click_1610990599742/work
+colorama==0.4.3
+configparser==5.0.2
+coverage @ file:///C:/ci/coverage_1614615074147/work
+crayons==0.4.0
+cryptography @ file:///C:/ci/cryptography_1607637849569/work
+cycler==0.10.0
+Cython @ file:///C:/ci/cython_1614014958194/work
+dj-database-url==0.5.0
+Django @ file:///tmp/build/80754af9/django_1617740316746/work
+django-bootstrap4==3.0.1
+django-bootstrap5==2.1.2
+django-environ==0.8.1
+docutils==0.15.2
+ecdsa @ file:///tmp/build/80754af9/ecdsa_1606082708034/work
+et-xmlfile==1.0.1
+flake8 @ file:///tmp/build/80754af9/flake8_1615834841867/work
+Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
+Flask-SQLAlchemy==2.5.1
+future==0.18.2
+gast @ file:///tmp/build/80754af9/gast_1597433534803/work
+google-auth @ file:///tmp/build/80754af9/google-auth_1600960338579/work
+google-auth-oauthlib @ file:///tmp/build/80754af9/google-auth-oauthlib_1614894617465/work
+google-pasta==0.2.0
+greenlet==1.0.0
+grpcio @ file:///C:/ci/grpcio_1614884412260/work
+h5py==2.10.0
+idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
+importlib-metadata @ file:///C:/ci/importlib-metadata_1615900494248/work
+isort @ file:///tmp/build/80754af9/isort_1616355431277/work
+itsdangerous @ file:///home/ktietz/src/ci/itsdangerous_1611932585308/work
+japanize-matplotlib==1.1.3
+jdcal==1.4.1
+Jinja2 @ file:///tmp/build/80754af9/jinja2_1612213139570/work
+jmespath==0.10.0
+joblib @ file:///tmp/build/80754af9/joblib_1613502643832/work
+Keras @ file:///tmp/build/80754af9/keras_split_1593112142734/work
+Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
+Keras-Preprocessing @ file:///tmp/build/80754af9/keras-preprocessing_1612283640596/work
+Kivy==2.0.0
+kivy-deps.angle==0.3.0
+kivy-deps.glew==0.3.0
+kivy-deps.sdl2==0.3.1
+Kivy-Garden==0.1.4
+kiwisolver @ file:///C:/ci/kiwisolver_1612282606037/work
+lazy-object-proxy @ file:///C:/ci/lazy-object-proxy_1616529307648/work
+macholib @ file:///home/linux1/recipes/ci/macholib_1611055836792/work
+Markdown @ file:///C:/ci/markdown_1614364121613/work
+MarkupSafe==1.1.1
+matplotlib @ file:///C:/ci/matplotlib-suite_1613408055530/work
+mccabe==0.6.1
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+more-itertools==8.7.0
+music21==6.7.1
+mysql==0.0.2
+mysql-connector-python==8.0.23
+mysqlclient==2.0.3
+numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
+oauthlib==3.1.0
+olefile==0.46
+openpyxl @ file:///tmp/build/80754af9/openpyxl_1610651698508/work
+opt-einsum==3.1.0
+pandas @ file:///C:/ci/pandas_1611171485393/work
+pefile==2019.4.18
+pep8==1.7.1
+Pillow @ file:///C:/ci/pillow_1609786840597/work
+protobuf==3.14.0
+psycopg2 @ file:///C:/ci/psycopg2_1612298803839/work
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycodestyle @ file:///home/ktietz/src/ci_mi/pycodestyle_1612807597675/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pycryptodome @ file:///C:/ci/pycryptodome_1613765534229/work
+pyflakes @ file:///home/ktietz/src/ci_ipy2/pyflakes_1612551159640/work
+pygame==2.0.1
+Pygments==2.8.1
+PyInstaller @ file:///C:/ci/pyinstaller_1615968685947/work
+PyJWT==1.7.1
+pylint @ file:///C:/ci/pylint_1614971486505/work
+pymongo==3.11.3
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
+pypiwin32==223
+pyreadline==2.1
+PySocks @ file:///C:/ci/pysocks_1605287845585/work
+python-dateutil @ file:///home/ktietz/src/ci/python-dateutil_1611928101742/work
+pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+pywin32==227
+pywin32-ctypes==0.2.0
+PyYAML==5.4.1
+requests @ file:///tmp/build/80754af9/requests_1608241421344/work
+requests-oauthlib==1.3.0
+rsa @ file:///tmp/build/80754af9/rsa_1614366226499/work
+s3transfer==0.5.0
+schedule==1.1.0
+scikit-learn @ file:///C:/ci/scikit-learn_1614446896245/work
+scipy @ file:///C:/ci/scipy_1614023125644/work
+seaborn @ file:///tmp/build/80754af9/seaborn_1608578541026/work
+selenium @ file:///C:/ci/selenium_1614268348533/work
+sip==4.19.13
+six @ file:///C:/ci/six_1605187374963/work
+soupsieve @ file:///tmp/build/80754af9/soupsieve_1607965878077/work
+SQLAlchemy @ file:///C:/ci/sqlalchemy_1617208371003/work
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+stripe==2.62.0
+tensorboard @ file:///home/builder/ktietz/aggregate/tensorflow_recipes/ci_te/tensorboard_1614593728657/work/tmp_pip_dir
+tensorboard-plugin-wit==1.6.0
+tensorflow==2.3.0
+tensorflow-estimator @ file:///tmp/build/80754af9/tensorflow-estimator_1599136169057/work/whl_temp/tensorflow_estimator-2.3.0-py2.py3-none-any.whl
+termcolor==1.1.0
+threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+toml @ file:///tmp/build/80754af9/toml_1616166611790/work
+tornado @ file:///C:/ci/tornado_1606942392901/work
+urllib3 @ file:///tmp/build/80754af9/urllib3_1611694770489/work
+webcolors==1.11.1
+webdriver-manager==3.4.1
+Werkzeug @ file:///home/ktietz/src/ci/werkzeug_1611932622770/work
+win-inet-pton @ file:///C:/ci/win_inet_pton_1605306167264/work
+win10toast==0.9
+wincertstore==0.2
+wrapt==1.12.1
+zipp @ file:///tmp/build/80754af9/zipp_1615904174917/work
