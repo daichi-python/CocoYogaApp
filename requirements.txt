@@ -1,4 +1,4 @@
--r requirements-dev.txt
+-r requirements.txt
 
 absl-py @ file:///C:/ci/absl-py_1615411229697/work
 altgraph @ file:///home/linux1/recipes/ci/altgraph_1611055153312/work

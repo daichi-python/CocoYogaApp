@@ -1,0 +1,109 @@
+h1{
+    margin-bottom: 2rem;
+}
+
+.reg-lesson{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.reg-container{
+    width: 90%;
+}
+
+.lesson-block{
+    width: 70%;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+}
+
+.detail-container{
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.lesson-detail{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.get{
+    padding: 1.5rem;
+    border: 0.1rem solid white;
+    border-radius: 20px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    width: 25%;
+}
+
+.get p{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.error{
+    font-size: 0.5rem;
+    color: red;
+}
+
+input, select{
+    width: 70%;
+    height: 1.5rem;
+}
+
+.poses{
+    width: 70%;
+    padding: 1.5rem;
+    border: 0.1rem solid white;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.pose-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-right: 2rem;
+}
+
+.poses p{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.pose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pose input{
+    width: 10%;
+}
+
+.register{
+    width: 10%;
+    float: right;
+    margin: 0 5rem 1rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 0.1em groove white;
+    background: linear-gradient(120deg, #D3D3D3, #DCDCDC);
+    border-radius: 5px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    height: 2rem;
+}
+
+.register:hover{
+    box-shadow: 0.1rem 0.1rem 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}

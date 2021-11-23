@@ -1,0 +1,51 @@
+.mypage-container{
+    width: 80%;
+    margin-top: 2rem;
+}
+
+.lesson-container{
+    background-color: white;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    padding: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.lessons{
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 2rem 0;
+    margin: 2.5rem 0;
+    width: 90%;
+}
+
+.lesson-box{
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    margin: 1.8rem;
+    padding: 1rem 2rem;
+}
+
+.empty{
+    color: red;
+    text-align: center;
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}
+
+.f-split{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.g-half{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.w-80{
+    width: 80%;
+}

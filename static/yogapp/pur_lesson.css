@@ -1,0 +1,61 @@
+h1{
+    margin-bottom: 2rem;
+}
+
+.pur-lesson{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pur-container{
+    width: 90%;
+}
+
+.lesson-block{
+    width: 80%;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+    padding-top: 2rem;
+}
+
+#new-lesson{
+    font-size: 1.8rem;
+}
+
+.error{
+    color: red;
+}
+
+.boxes{
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0;
+}
+
+.half-box{
+    padding: 2rem;
+    border: 0.1em groove white;
+    width: 35%;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+}
+
+.half-box h2{
+    border-bottom: 0.3rem solid rgba(131, 131, 131, 0.7);
+}
+
+.payment p{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.w-80{
+    width: 80%;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}

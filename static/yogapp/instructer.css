@@ -1,0 +1,114 @@
+.container{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 2rem 3rem 4rem 3rem;
+    margin-top: 5rem;
+}
+
+.container h2 {
+    font-size: 1.8rem;
+}
+
+.total-box{
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    text-align: left;
+    padding: 1rem 4rem;
+    margin: 1rem 2rem;
+    width: 30%;
+}
+
+.total-box h3 {
+    font-size: 1.5rem;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.register a{
+    display: block;
+    width: 10%;
+    height: 1.4rem;
+    border: 1rem groove rgb(79, 210, 214);
+    background-color: rgb(79, 210, 214);
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.register a:hover{
+    box-shadow: none;
+}
+
+.lesson-box{
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    text-align: left;
+    padding: 2rem 4rem;
+    margin: 1rem 2rem;
+    width: 45%;
+}
+
+.lesson-box h3{
+    font-size: 1.5rem;
+}
+
+.lesson{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.2rem 1rem 0.2rem;
+    box-shadow: 0.2rem 0.2rem 0.8em rgba(0,0,0,0.3);
+    border-radius: 3rem;
+    border: 0.2rem solid rgba(0,0,0,0.3);
+    background-color: rgba(99, 99, 99, 0.3);
+    font-size: 0.9rem;
+}
+
+.nothing{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: red;
+}
+
+.detail{
+    margin-left: 0;
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}
+
+.g-split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.g-split p{
+    margin: 0.2rem 1rem;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.w-90{
+    width: 90%;
+}
+
+.pl-2{
+    padding-left: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .g-split{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

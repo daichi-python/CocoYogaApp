@@ -1,0 +1,96 @@
+body{
+    background-color: azure;
+}
+
+.title{
+    font-size: 2.5rem;
+    margin: 3rem 5rem;
+    font-family: 'Kaisei HarunoUmi', serif;
+    text-shadow: 0.2rem 0.2rem 0 rgba(105, 105, 105, 0.7);
+}
+
+.login-container{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    margin: auto;
+    width: 40%;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, #FFFFCC, #EEEEEE);
+    border: 1rem outset white;
+    border-radius: 10px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+}
+
+.login h1{
+    border-bottom: 2px dashed black;
+    padding-bottom: 0.5rem;
+}
+
+input{
+    width: 80%;
+    height: 1.5rem;
+}
+
+.form{
+    margin: 3rem 0;
+}
+
+.form-group{
+    margin-top: 4rem;
+}
+
+.form-control{
+    height: 2rem;
+}
+
+label{
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.error-container{
+    color: red;
+    margin: 1rem 1rem 0 1rem;
+    padding: 1rem
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn{
+    padding: 1rem 2.8rem;
+    margin-top: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    border: 0.1rem groove white;
+    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 100vh;
+    background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.login-btn span {
+    background-image: -webkit-gradient(linear, left top, right top, from(#485164), to(#495e52));
+    background-image: -webkit-linear-gradient(left, #485164 0%, #495e52 100%);
+    background-image: linear-gradient(to right, #485164 0%, #495e52 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.login-btn:hover{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+.register{
+    margin-top: 2rem;
+    float: right;
+}

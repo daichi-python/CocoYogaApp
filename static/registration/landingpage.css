@@ -1,0 +1,311 @@
+/*
+body{
+    background-image: conic-gradient(from 20deg, rgb(115, 236, 135) 18deg, rgba(193, 199, 197, 1) 68deg, rgba(108, 199, 221, 1) 151deg, rgb(245, 151, 43) 263deg, rgba(122, 197, 216, 1) 295deg, rgb(115, 236, 135) 360deg);
+}
+*/
+
+body{
+    background-color: #dddddd;
+}
+
+header{
+    position: fixed;
+    display: inline-block;
+    z-index: 1;
+    background: radial-gradient(
+        circle 30rem at left,
+        #57f6fe 0%,
+        #30c7ec 50%,
+        #46aef7 100%
+    );
+    opacity: 0.7;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 0.5rem ridge rgba(69, 202, 196, 0.781)
+}
+
+.header-bar{
+    margin-right: 2rem;
+}
+
+.title{
+    font-size: 2.5rem;
+    margin:0.5rem 0 0.5rem 2.5rem;
+    float: left;
+    border-left: 6px double rgba(0,0,0,0.7);
+    padding-left: 2rem;
+    font-family: 'Kaisei HarunoUmi', serif;
+}
+
+.header-btn{
+    font-size: 1.4rem;
+    float: right;
+    margin-right: 2rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    color: black;
+    border-radius: 100vh;
+    background-image: -webkit-linear-gradient(110deg, #e9defa 0%, #fbfcdb 100%);
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    font-family: 'Kosugi', sans-serif;
+}
+
+header h1:hover{
+    box-shadow: none;
+}
+
+.image-container{
+    width: 100%;
+    position: relative;
+}
+
+.image-container h1{
+    width: 100%;
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+    font-size: 10rem;
+    letter-spacing: 0.4rem;
+    color: white;
+    font-family: 'Kaisei HarunoUmi', serif;
+    text-shadow: 0.4rem 0.4rem 0 rgba(0,0,0,0.7);
+}
+
+.image-container p{
+    position: absolute;
+    top: 4.5em;
+    right: 1rem;
+    font-size: 5rem;
+    letter-spacing: 0.3rem;
+    color: white;
+    font-family: 'Kaisei HarunoUmi', serif;
+    text-shadow: 0.4rem 0.4rem 0 rgba(0,0,0,0.7);
+}
+
+.image-container img{
+    width: 100%;
+}
+
+.detail-container{
+    margin: 8rem 0 0 10rem;
+    display: flex;
+}
+
+.cards{
+    width: 70%;
+    box-shadow: 0.3rem 0.3rem 1em rgb(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.box{
+    margin-top: 4rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    padding: 0 2rem 2rem 0;
+}
+
+.box h2{
+    margin-bottom: 2.5rem;
+    background: linear-gradient(transparent 70%, #ffff66 60%);
+}
+
+.payment-container{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10rem 5rem 0 0;
+}
+
+.fee-container{
+    display: flex;
+    margin: 10rem 0 0 10rem;
+}
+
+.addSlideIn{
+    animation: 0.7s linear slideIn;
+}
+
+.addSlideInReverse{
+    animation: 0.7s linear slideInReverse;
+}
+
+.addFadeSlideIn{
+    animation: 0.7s linear fadeSlideIn;
+}
+
+.addFadeSlideInReverse{
+    animation: 0.7s linear fadeSlideInReverse;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInReverse {
+    0% {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlideInReverse {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-container{
+    margin: 4rem 0;
+    padding-bottom: 2rem;
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    background: 
+    linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, black 25%, transparent 25%),
+    linear-gradient(45deg, black 25%, transparent 25%); 
+    background-size: 2em 2em;
+    background-color: rgb(36, 33, 33);
+    border-radius: 25rem;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.7);
+    border: 0.5rem solid black;
+}
+
+.register{
+    width: 50%;
+    padding: 2rem;
+}
+
+.register h1{
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 1px 1px 1px #555, -1px 1px 1px #555, 1px -1px 1px #555, -1px -1px 1px #555, 1px 1px 1px #555, -1px 1px 1px #555, 1px -1px 1px #555, -1px -1px 1px #555, 5px 5px #d3d60d;
+    transform: rotate(-4deg);
+}
+
+.btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-btn{
+    width: 100%;
+    text-align: center;
+    border: 0,1rem solid white;
+    border-radius: 2rem;
+    background: linear-gradient(150deg, rgb(204, 178, 34), rgb(223, 223, 17));
+    cursor: pointer;
+    box-shadow: 0.3rem 0.3rem 1em rgb(0, 0, 0);
+    margin: 0 1rem 0 1rem;
+    border: 0.8rem outset rgb(131, 118, 5);
+}
+
+.bottom-btn:hover{
+    border: 0.8rem inset rgb(131, 118, 5);
+}
+
+.d-none{
+    display: none;
+}
+
+@media (max-width: 1200px){
+    header{
+        width: 90%;
+    }
+
+    .image-container h1{
+        font-size: 8rem;
+        top: 5rem;
+    }
+
+    .image-container p{
+        font-size: 3rem;
+        top: 25rem;
+    }
+
+    .payment-container, .fee-container, .detail-container{
+        display: block;
+        margin: 5rem;
+    }
+
+    .cards{
+        width: 98%;
+    }
+
+    .register-container{
+        width: 97%;
+    }
+}
+
+@media (max-width: 768px){
+    header{
+        width: 86%;
+    }
+
+    .header-bar{
+        margin-right: 0;
+    }
+
+    .header-btn{
+        margin-right: 1rem;
+    }
+
+    .image-container h1{
+        font-size: 5rem;
+        top: 7rem;
+    }
+
+    .image-container p{
+        font-size: 2rem;
+        top: 23rem;
+    }
+
+    .payment-container, .fee-container, .detail-container{
+        display: block;
+        margin: 4rem;
+    }
+
+    .cards{
+        width: 95%;
+        display: block;
+        padding: 0 2rem;
+    }
+
+    .register-container{
+        width: 97%;
+    }
+}
