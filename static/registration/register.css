@@ -22,7 +22,6 @@ li{
 
 .register-container{
     width: 50%;
-    padding: 4rem, 4rem;
     text-align: center;
     padding: 2rem;
     background: linear-gradient(145deg, #FFFFCC, #EEEEEE);
@@ -86,4 +85,56 @@ input, select{
 
 .user{
     float: right;
+}
+
+@media (max-width: 1200px){
+    .title{
+        margin: 5rem 7rem;
+    }
+
+    .register-container{
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px){
+    .title{
+        margin: 3rem 5rem;
+    }
+
+    .register-container{
+        width: 65%;
+    }
+
+    .label-box{
+        margin-bottom: 3rem;
+    }
+
+    .label-container{
+        display: block;
+    }
+
+    input, select{
+        width: 90%;
+    }
+
+    .user{
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 450px){
+    .title{
+        font-size: 1.8rem;
+        margin: 2rem;
+    }
+
+    .register-container{
+        width: 100%;
+        padding: 0;
+    }
+
+    .label-box{
+        padding: 0 2rem;
+    }
 }
