@@ -308,6 +308,22 @@ header h1:hover{
     .register-container{
         width: 97%;
     }
+
+    .addSlideIn{
+        animation: none;
+    }
+    
+    .addSlideInReverse{
+        animation: none;
+    }
+    
+    .addFadeSlideIn{
+        animation: none;
+    }
+    
+    .addFadeSlideInReverse{
+        animation: none;
+    }
 }
 
 @media (max-width: 450px){
@@ -364,5 +380,21 @@ header h1:hover{
 
     .register{
         width: 65%;
+    }
+
+    .addSlideIn{
+        animation: none;
+    }
+    
+    .addSlideInReverse{
+        animation: none;
+    }
+    
+    .addFadeSlideIn{
+        animation: none;
+    }
+    
+    .addFadeSlideInReverse{
+        animation: none;
     }
 }

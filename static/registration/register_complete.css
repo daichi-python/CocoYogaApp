@@ -17,9 +17,8 @@ body{
 
 .container{
     width: 50%;
-    padding: 4rem, 4rem;
-    text-align: center;
     padding: 2rem;
+    text-align: center;
     background: linear-gradient(145deg, #FFFFCC, #EEEEEE);
     border: 1rem outset white;
     border-radius: 10px;
@@ -36,7 +35,43 @@ body{
     margin: 2rem 0;
 }
 
-.detail a{
+.login{
     display: inline-block;
     margin-top: 2rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    background: linear-gradient(135deg, rgb(115, 236, 252), rgb(7, 140, 163));
+    padding: 0.7rem 1.5rem;
+    border: 0.1rem solid rgb(7,140,163);
+    border-radius: 30px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+}
+
+.login:hover{
+    box-shadow: none;
+}
+
+@media (max-width: 768px){
+    .container{
+        width: 70%;
+    }
+}
+
+@media (max-width: 450px){
+    .title{
+        font-size: 1.5rem;
+        margin: 1.5rem 2rem;
+    }
+
+    .container{
+        padding: 1.2rem;
+    }
+
+    .container h1{
+        font-size: 2rem;
+    }
+
+    .container p{
+        font-size: 1.2rem;
+    }
 }
