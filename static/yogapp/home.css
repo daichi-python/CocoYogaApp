@@ -16,29 +16,27 @@
     font-size: 1.2rem;
     margin: 2rem 0;
     border: 0.1em groove white;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     padding: 1rem 3.5rem;
+    background-color: rgb(240, 240, 240);
 }
 
 .detail{
     display: flex;
 }
 
-.calendar-container{
-    width: 80%;
-    margin: 5rem;
-    background: linear-gradient(135deg, white, 60%, #EEEEEE);
-    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-    text-align: center;
-    padding: 2rem;
-    border-radius: 5px;
-}
-
-.calendar-btn{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
+.reg-box a{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 100vh;
+    background-image: -webkit-linear-gradient(110deg, #fae0de 0%, #ffcccc 100%);
+    background-image: linear-gradient(-20deg, #d0d0f7 0%, #d9ffff 100%);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    font-family: 'Kosugi', sans-serif;
+    color: black;
+    padding: 1rem 1.2rem;
 }
 
 .btn{
@@ -50,13 +48,6 @@
 
 .btn:hover{
     box-shadow: 0.1rem 0.1rem 0.3em rgba(0, 0, 0, 0.3);
-}
-
-#calendar-box{
-    margin: 1.5rem 0;
-    display: grid;
-    grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
-    text-align: center;
 }
 
 .date-card{
@@ -82,6 +73,10 @@
     border-radius: 5px;
     margin-top: 8rem;
     text-align: center;
+}
+
+.lesson-list-container h2{
+    margin-bottom: 2rem;
 }
 
 .list-container{

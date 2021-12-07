@@ -1,0 +1,66 @@
+.container{
+    width: 65%;
+    margin-top: 4rem;
+    background-color: white;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    padding: 2rem 6rem;
+    border-radius: 20px;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.field-container{
+    width: 70%;
+    margin-bottom: 2rem;
+}
+
+.field-container p{
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.pose-btn button{
+    padding: 0.7rem 2rem;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, rgb(21, 185, 214), rgb(9, 134, 156));
+    border-radius: 30px;
+}
+
+.pose-list{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.pose{
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 30px;
+    background-color: rgb(233, 233, 233);
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    height: 1.3rem;
+}
+
+textarea{
+    height: 6rem;
+}
+
+textarea, input{
+    resize: none;
+    width: 100%;
+    font-size: 1.2rem;
+}

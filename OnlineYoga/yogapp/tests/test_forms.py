@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
-from yogapp.forms import QuestionAndAnswerForm, RegisterLessonForm
+from yogapp.forms import QuestionAndAnswerForm, RegisterLessonForm, PoseCreateForm, AnswerForm
 from yogapp.models import LessonStyle, Instructer, Lesson, Pose, PoseCollection
 from registration.models import User
 from django.utils import timezone
@@ -21,11 +21,11 @@ class QandAFormTest(TestCase):
     def test_send_question_form_unusable_detail(self):
         contents1 = {
             "category": "1",
-            "detail": "helloworld.return 0"
+            "detail": "helloworl"
         }
         contents2 = {
             "category": "1",
-            "detail": "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901"
+            "detail": "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901"
         }
         form1 = QuestionAndAnswerForm(data=contents1)
         form2 = QuestionAndAnswerForm(data=contents2)
@@ -103,6 +103,59 @@ class RegisterLessonFormTest(TestCase):
         }
         form = RegisterLessonForm(data=content)
         self.assertFalse(form.is_valid())
+        
+        
+class PoseCreateFormTest(TestCase):
+    def setUp(self):
+        Pose.objects.create(name="TestPose", detail="this is test pose")
+    
+    def test_create_pose(self):
+        content = {
+            "pose_name": "test",
+            "pose_detail": "this is test pose."
+        }
+        form = PoseCreateForm(data=content)
+        self.assertTrue(form.is_valid())
+        
+    def test_create_pose_name_over_20(self):
+        content = {
+            "pose_name": "testtesttesttesttesttest",
+            "pose_detail": "this is test pose."
+        }
+        form = PoseCreateForm(data=content)
+        self.assertFalse(form.is_valid())
+        
+    def test_same_name_pose(self):
+        content = {
+            "pose_name": "TestPose",
+            "pose_detail": "this is test pose"
+        }
+        form = PoseCreateForm(data=content)
+        self.assertFalse(form.is_valid())
+        
+        
+class AnswerFormTest(TestCase):
+    def test_answer_the_question(self):
+        content = {
+            "detail": "this is test answer"
+        }
+        form = AnswerForm(data=content)
+        self.assertTrue(form.is_valid())
+        
+    def test_small_answer(self):
+        content = {
+            "detail": "testtest"
+        }
+        form = AnswerForm(data=content)
+        self.assertFalse(form.is_valid())
+        
+    def test_big_answer(self):
+        content = {
+            "detail": "this is test answer string 30.this is test answer string 30.this is test answer string 30.this is test answer string 30.this is test answer string 30.this is test answer string 30.this is test answer string 30."
+        }
+        form = AnswerForm(data=content)
+        self.assertFalse(form.is_valid())
+        
 
 class Utils:
     

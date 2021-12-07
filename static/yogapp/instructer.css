@@ -3,12 +3,37 @@
     border-radius: 15px;
     box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
     text-align: center;
-    padding: 2rem 3rem 4rem 3rem;
+    padding: 2rem 3rem;
     margin-top: 5rem;
 }
 
 .container h2 {
     font-size: 1.8rem;
+}
+
+#menu-tage{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+#link-container{
+    width: 80%;
+}
+
+#menu-tage a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    background: linear-gradient(145deg, rgb(26, 213, 226), rgba(7, 192, 177, 0.678));
+    margin: 1rem auto;
+    padding: 1rem 0;
+    border: 0.5rem groove rgba(7, 192, 177, 0.678);
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: black;
+    box-shadow: 0.3rem 0.3rem 0.5em rgba(0,0,0,0.3);
 }
 
 .total-box{
@@ -17,33 +42,11 @@
     padding: 1rem 4rem;
     margin: 1rem 2rem;
     width: 30%;
+    background-color: rgb(240, 240, 240);
 }
 
 .total-box h3 {
     font-size: 1.5rem;
-}
-
-.register{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.register a{
-    display: block;
-    width: 10%;
-    height: 1.4rem;
-    border: 1rem groove rgb(79, 210, 214);
-    background-color: rgb(79, 210, 214);
-    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
-    font-size: 1rem;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
-.register a:hover{
-    box-shadow: none;
 }
 
 .lesson-box{
@@ -52,6 +55,7 @@
     padding: 2rem 4rem;
     margin: 1rem 2rem;
     width: 45%;
+    background-color: rgb(240, 240, 240);
 }
 
 .lesson-box h3{
@@ -71,9 +75,11 @@
 }
 
 .nothing{
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    color: red;
+    background: rgb(184, 184, 184);
+    text-align: center;
+    width: 70%;
+    border-radius: 30px;
+    border: 0.5rem groove rgb(153, 153, 153)
 }
 
 .detail{

@@ -63,3 +63,45 @@ li{
 .left-block{
     display: flex;
 }
+
+.ham-container{
+    display: none;
+}
+
+.inner-line{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: 1s;
+    border-radius: 4px;
+}
+
+#ham-btn{
+    background-color: #4682B4;
+}
+
+#line1 {
+    top: 0;
+}
+
+#line2 {
+    top: 20px;
+}
+
+#line3 {
+    bottom: 0px;
+}
+
+@media (max-width: 1200px){
+    .page-header{
+        display: none;
+    }
+
+    .ham-container{
+        display: block;
+        position: fixed;
+    }
+}

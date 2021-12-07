@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/question_list.css' %}">
+    <title>質問一覧</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="f-center">
+        <div class="question-list">
+            <h1>質問一覧</h1>
+            <div class="f-center">
+                <div class="question-container">
+                    {% if not not_answerd_question %}
+                    <div class="f-center">
+                        <div class="not-question">
+                            <h2>質問はありません。</h2>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% for question in object_list %}
+                    {% if not question.is_answerd %}
+                    <div class="question">
+                        <div class="left-container">
+                            <h2>{{ question.get_category_display }}</h2>
+                            <p>　{{ question.detail }}</p>
+                            <p>　ユーザー：{{ question.user }}</p>
+                        </div>
+                        <div class="right-container">
+                            <a href="{% url 'answer' question.id %}">回答する</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

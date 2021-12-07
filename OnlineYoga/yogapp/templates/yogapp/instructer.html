@@ -15,9 +15,13 @@
         <div class="w-90">
             <div class="f-center">
                 <div class="container w-60">
-                    <h2>レッスン登録</h2>
-                    <div class="register">
-                        <a href="{% url 'register' %}">登録画面へ</a>
+                    <h2 id="menu-btn">メニュー</h2>
+                    <div id="menu-tage">
+                        <div id="link-container">
+                            <a href="{% url 'register' %}">レッスン登録画面</a>
+                            <a href="{% url 'pose' %}">ポーズ登録</a>
+                            <a href="{% url 'question_list' %}">質問を見る</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,8 +62,10 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        <div class="nothing">
-                            <h2>レッスン履歴はありません。</h2>
+                        <div class="f-center">
+                            <div class="nothing">
+                                <h2>レッスン履歴はありません。</h2>
+                            </div>
                         </div>
                         {% endif %}
                     </div>
@@ -78,8 +84,10 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        <div class="nothing">
-                            <h2>レッスン予定はありません。</h2>
+                        <div class="f-center">
+                            <div class="nothing">
+                                <h2>レッスン予定はありません。</h2>
+                            </div>
                         </div>
                         {% endif %}
                     </div>

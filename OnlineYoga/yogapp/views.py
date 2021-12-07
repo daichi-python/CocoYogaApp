@@ -5,8 +5,8 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils import timezone
 from django.utils.timezone import make_aware
-from .models import Instructer, Lesson, PoseCollection, Purchase, Question, QuestionAndAnswer, LessonStyle, Pose
-from .forms import QuestionAndAnswerForm, RegisterLessonForm
+from .models import Answer, Instructer, Lesson, PoseCollection, Purchase, Question, QuestionAndAnswer, LessonStyle, Pose
+from .forms import AnswerForm, PoseCreateForm, QuestionAndAnswerForm, RegisterLessonForm
 
 import datetime
 import requests
@@ -181,12 +181,63 @@ class QandAView(LoginRequiredMixin, FormView, ListView):
     success_url = "yogapp/Q&A.html"
     
     def form_valid(self, form):
-        Question.objects.create(
-            user = self.request.user,
-            category=form["category"].value(),
-            detail=form["detail"].value(),
-        )
-        return redirect("qanda")
+        if form.is_valid():
+            Question.objects.create(
+                user = self.request.user,
+                category=form["category"].value(),
+                detail=form["detail"].value(),
+            )
+            return redirect("qanda")
+
+
+class QuestionListView(LoginRequiredMixin, ListView):
+    template_name = "yogapp/question_list.html"
+    model = Question
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "not_answerd_question": Question.objects.filter(is_answerd=False)
+        })
+        return context
+    
+    
+class AnswerView(LoginRequiredMixin, DetailView, FormView):
+    template_name = "yogapp/answer.html"
+    model = Question
+    form_class = AnswerForm
+    
+    def form_valid(self, form):
+        if form.is_valid():
+            answer = Answer.objects.create(
+                detail=form["detail"].value(),
+                instructer=Instructer.objects.get(user=self.request.user)
+            )
+            
+            question = self.get_object()
+            question.is_answerd = True
+            question.save()
+            
+            QuestionAndAnswer.objects.create(
+                question=question,
+                answer=answer
+            )
+            
+            return redirect("question_list")
+
+
+class PoseView(LoginRequiredMixin, FormView, ListView):
+    template_name = "yogapp/pose.html"
+    model = Pose
+    form_class = PoseCreateForm
+    
+    def form_valid(self, form):
+        if form.is_valid():
+            Pose.objects.create(
+                name=form["pose_name"].value(),
+                detail=form["pose_detail"].value()
+            )
+        return redirect("pose")
 
 
 class InstructerView(LoginRequiredMixin, ListView):

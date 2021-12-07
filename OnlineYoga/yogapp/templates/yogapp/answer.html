@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/answer.css' %}">
+    <title>質問回答</title>
+</head>
+<body>
+    {% include "yogapp/header.html" %}
+    <div class="f-center">
+        <div class="answer-container">
+            <h1>質問回答</h1>
+            <div class="f-center">
+                <div class="question-detail">
+                    <h2>{{ question.get_category_display }}</h2>
+                    <p>{{ question.detail }}</p>
+                    <p>ユーザー：{{ question.user }}</p>
+                </div>
+            </div>
+            <div class="f-center">
+                <form class="question-detail" action="" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <h2>{{ field.label }}</h2>
+                    {{ field }}
+                    {% endfor %}
+                    <div class="reg-btn">
+                        <button>回答する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

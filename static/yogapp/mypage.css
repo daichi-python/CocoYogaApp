@@ -9,6 +9,7 @@
     padding: 3rem;
     font-size: 1.1rem;
     text-align: center;
+    border-radius: 20px;
 }
 
 .lessons{
@@ -17,6 +18,7 @@
     padding: 2rem 0;
     margin: 2.5rem 0;
     width: 90%;
+    background-color: rgb(240, 240, 240);
 }
 
 .lesson-box{
@@ -26,8 +28,11 @@
 }
 
 .empty{
-    color: red;
+    background: rgb(184, 184, 184);
     text-align: center;
+    width: 70%;
+    border-radius: 30px;
+    border: 0.5rem groove rgb(153, 153, 153)
 }
 
 .f-center{

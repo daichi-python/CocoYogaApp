@@ -1,0 +1,38 @@
+.answer-container{
+    width: 65%;
+    margin-top: 3rem;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem 6rem;
+}
+
+.question-detail{
+    width: 70%;
+    padding: 2rem 4rem;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0.3rem 0.3rem 1em rgba(0,0,0,0.3);
+    border-radius: 30px;
+    border: 0.5rem groove rgb(240, 240, 240);
+    margin: 2rem 0;
+}
+
+textarea{
+    font-size: 1.1rem;
+    width: 100%;
+    resize: none;
+}
+
+.question-detail button{
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 550;
+    background: linear-gradient(135deg, rgb(21, 185, 214), rgb(9, 134, 156));
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.f-center{
+    display: flex;
+    justify-content: center;
+}

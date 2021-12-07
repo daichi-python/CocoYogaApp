@@ -1,0 +1,1 @@
+const hamburger = document.querySelectorAll(".hamburger");

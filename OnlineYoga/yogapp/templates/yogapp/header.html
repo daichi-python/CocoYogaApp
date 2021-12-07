@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <div class="page-header">
-    <div class="ph-box">
+    <div id="ph-box" class="ph-box">
         <div class="left-block">
-            <h1>CocoYoga</h1>
+            <h1 class="hamburger">CocoYoga</h1>
             <ul class="ph-menu">
-                <li><a href="{% url 'home' %}">ホーム</a></li>
-                <li><a href="{% url 'mypage' %}">マイページ</a></li>
-                <li><a href="{% url 'qanda' %}">Q&A</a></li>
+                <li class="hamburger"><a href="{% url 'home' %}">ホーム</a></li>
+                <li class="hamburger"><a href="{% url 'mypage' %}">マイページ</a></li>
+                <li class="hamburger"><a href="{% url 'qanda' %}">Q&A</a></li>
                 {% if user.is_instructer %}
-                <li><a href="{% url 'instructer' %}">インストラクター</a></li>
+                <li class="hamburger"><a href="{% url 'instructer' %}">インストラクター</a></li>
                 {% endif %}
             </ul>
         </div>
         <div class="right-block">
             {% if user.is_authenticated %}
-            <p class="user">ユーザー：　{{ user.get_username }}</p>
+            <p class="user hamburger">ユーザー：　{{ user.get_username }}</p>
             {% endif %}
-            <button><a href="{% url 'logout' %}">ログアウト</a></button>
+            <button class="hamburger"><a href="{% url 'logout' %}">ログアウト</a></button>
         </div>
     </div>
+</div>
+<div class="ham-container">
+    <div id="ham-btn">
+        <span id="line1" class="inner-line"></span>
+        <span id="line2" class="inner-line"></span>
+        <span id="line3" class="inner-line"></span>
+    </div>
+    <div id="ham-target"></div>
 </div>

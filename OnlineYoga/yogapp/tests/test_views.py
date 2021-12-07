@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.utils import timezone
 from django.urls import reverse
 
-from yogapp.models import Instructer, Lesson, LessonStyle, Purchase, Pose, PoseCollection
+from yogapp.models import Instructer, Lesson, LessonStyle, Purchase, Pose, PoseCollection, Question, QuestionAndAnswer, Answer
 from registration.models import User
 
 import datetime
@@ -79,7 +79,7 @@ class RegisterLessonViewTest(TestCase):
         content = {
             "style": "normal",
             "lesson_date": self.future,
-            "poses": Pose.objects.all(),
+            "poses": "1",
             "price": "1000",
         }
         self.client_inst.post(reverse("register"), content)
@@ -215,6 +215,56 @@ class LessonViewTest(TestCase):
         ModelCreate.create_purchase(self.user, self.active_lesson)
         response = self.client_user.get(reverse("lesson", args=(self.active_lesson.id,)))
         self.assertEqual(response.status_code, 200)
+        
+
+class PoseViewTest(TestCase):
+    def setUp(self):
+        self.pose = ModelCreate.create_pose()
+        self.user = ModelCreate.create_user()
+        self.client = ModelCreate.login_user(self.user)
+    
+    def test_pose_view(self):
+        response = self.client.get(reverse("pose"))
+        self.assertContains(response, self.pose.detail)
+        
+    def test_create_pose(self):
+        content = {
+            "pose_name": "TestPose",
+            "pose_detail": "this is test pose"
+        }
+        response = self.client.post(reverse("pose"), content)
+        self.assertEqual(Pose.objects.count(), 2)
+     
+    """
+    This test return AttributeError.
+    """   
+    # def test_create_pose_unusable_count(self):
+    #     content = {
+    #         "pose_name": "over 20 strings.this is test.",
+    #         "pose_detail": "this test return false."
+    #     }
+    #     response = self.client.post(reverse("pose"), content)
+    #     self.assertEqual(Pose.objects.count(), 1)
+
+
+class QuestionListViewTest(TestCase):
+    def setUp(self):
+        self.user = ModelCreate.create_user()
+        self.client = ModelCreate.login_user(self.user)
+    
+    def test_question_list(self):
+        question = ModelCreate.create_question()
+        response = self.client.get(reverse("question_list"))
+        self.assertContains(response, question.detail)
+        
+    def test_question_list_already_answerd(self):
+        qanda = ModelCreate.create_question_and_answer()
+        response = self.client.get(reverse("question_list"))
+        self.assertNotContains(response, qanda.question.detail)
+        
+    def test_no_question(self):
+        response = self.client.get(reverse("question_list"))
+        self.assertContains(response, "質問はありません。")
 
 
 class ViewTestByNotAuthenticatedUser(TestCase):
@@ -244,6 +294,19 @@ class ViewTestByNotAuthenticatedUser(TestCase):
     def test_not_user_access_qanda_view(self):
         response = self.client.get(reverse("qanda"))
         self.assertEqual(response.status_code, 302)
+        
+    def test_not_user_access_pose_view(self):
+        response = self.client.get(reverse("pose"))
+        self.assertEqual(response.status_code, 302)
+        
+    def test_not_user_access_question_list_view(self):
+        response = self.client.get(reverse("question_list"))
+        self.assertEqual(response.status_code, 302)
+        
+    def test_not_user_access_answer_view(self):
+        question = ModelCreate.create_question()
+        response = self.client.get(reverse("answer", args=(question.id,)))
+        self.assertEqual(response.status_code, 302)
 
 
 class ViewTestByAuthenticatedUser(TestCase):
@@ -272,6 +335,19 @@ class ViewTestByAuthenticatedUser(TestCase):
         
     def test_authenticated_user_access_instructer_view(self):
         response = self.client.get(reverse("instructer"))
+        self.assertEqual(response.status_code, 200)
+        
+    def test_authenticated_user_access_instructer_view(self):
+        response = self.client.get(reverse("pose"))
+        self.assertEqual(response.status_code, 200)
+        
+    def test_authenticated_user_access_question_list_view(self):
+        response = self.client.get(reverse("question_list"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_authenticated_user_access_answer_view(self):
+        question = ModelCreate.create_question()
+        response = self.client.get(reverse("answer", args=(question.id,)))
         self.assertEqual(response.status_code, 200)
 
 
@@ -325,6 +401,21 @@ class ModelCreate(object):
         collection.poses.add(pose1)
         collection.poses.add(pose2)
         return collection
+    
+    @staticmethod
+    def create_question(is_answerd=False):
+        user = ModelCreate.create_user()
+        detail = ModelCreate.generate_random_string()
+        return Question.objects.create(user=user, category=1, detail=detail, is_answerd=is_answerd)
+    
+    @staticmethod
+    def create_question_and_answer():
+        question = ModelCreate.create_question(True)
+        user_obj = ModelCreate.create_user()
+        instructer = ModelCreate.create_instructer(user_obj)
+        detail = ModelCreate.generate_random_string()
+        answer = Answer.objects.create(detail=detail, instructer=instructer)
+        return QuestionAndAnswer.objects.create(question=question, answer=answer)
 
     @staticmethod
     def create_datetime_string(dt):

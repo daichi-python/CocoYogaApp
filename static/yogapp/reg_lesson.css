@@ -39,6 +39,7 @@ h1{
     border-radius: 20px;
     box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
     width: 25%;
+    background-color: rgb(240, 240, 240);
 }
 
 .get p{
@@ -62,6 +63,7 @@ input, select{
     border: 0.1rem solid white;
     box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
     margin-bottom: 2rem;
+    background-color: rgb(240, 240, 240);
 }
 
 .pose-list{

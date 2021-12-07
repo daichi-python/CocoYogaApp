@@ -25,14 +25,27 @@ class QuestionAndAnswerForm(forms.Form):
     )
     detail = forms.CharField(
         label="お問い合わせ内容",
-        widget=forms.Textarea,
+        widget=forms.Textarea(attrs={"placeholder": "10文字以上200文字以下で入力してください。"}),
     )
 
     def clean_detail(self):
         detail = self.cleaned_data["detail"]
-        if 20 <= len(detail) <= 240:
+        if 10 <= len(detail) <= 200:
             return detail
-        raise ValidationError("detail length must be between 20 to 240.")
+        raise ValidationError("10文字以上200文字以下になっていません。")
+    
+
+class AnswerForm(forms.Form):
+    detail = forms.CharField(
+        label="回答",
+        widget=forms.Textarea(attrs={"placeholder": "10文字以上200文字以下で入力してください。"})
+    )
+    
+    def clean_detail(self):
+        detail = self.cleaned_data["detail"]
+        if 10 <= len(detail) <= 200:
+            return detail
+        raise ValidationError("10文字以上200文字以下になっていません。")
 
 
 class RegisterLessonForm(forms.Form):
@@ -72,3 +85,26 @@ class RegisterLessonForm(forms.Form):
                 self.add_error("price", "正しいフォーマットで入力してください。")
                 raise ValidationError("You use unusable format.")
         return price
+    
+
+class PoseCreateForm(forms.Form):
+    pose_name = forms.CharField(
+        label = "ポーズ名",
+        widget=forms.TextInput(attrs={"placeholder": "20文字以内で入力してください。"})
+    )
+    
+    pose_detail = forms.CharField(
+        label = "ポーズ詳細",
+        widget = forms.Textarea(),
+    )   
+    
+    def clean_pose_name(self):
+        pose = self.cleaned_data["pose_name"]
+        
+        if len(pose) > 20:
+            raise ValidationError("文字数が20文字を超えています。")
+        
+        if len(Pose.objects.filter(name=pose)) != 0:
+            raise ValidationError("このポーズは登録済みです。")
+        
+        return pose

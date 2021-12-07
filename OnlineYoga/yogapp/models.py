@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE, PROTECT
+from django.forms.models import model_to_dict
 from django.utils import timezone
 
 import datetime
@@ -90,8 +91,12 @@ class Question(models.Model):
         ("1", "レッスンについて"), ("2", "インストラクターについて"), ("3", "要望"), ("4", "その他")
         ))
     detail = models.TextField()
+    is_answerd = models.BooleanField("is answerd", default=False)
     created = models.DateTimeField("create date", auto_now_add=True)
     updated = models.DateTimeField("update date", auto_now=True)
+    
+    def __str__(self):
+        return self.get_category_display()
 
 
 class Answer(models.Model):
@@ -100,6 +105,9 @@ class Answer(models.Model):
     detail = models.TextField()
     created = models.DateTimeField("create date", auto_now_add=True)
     updated = models.DateTimeField("update date", auto_now=True)
+    
+    def __str__(self):
+        return self.detail[:10]
 
 
 class QuestionAndAnswer(models.Model):

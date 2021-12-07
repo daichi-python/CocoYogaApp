@@ -30,6 +30,7 @@ form{
     width: 80%;
     height: 8rem;
     resize: none;
+    font-size: 1.1rem;
 }
 
 .btn-question{

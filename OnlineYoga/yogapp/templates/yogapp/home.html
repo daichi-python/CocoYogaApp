@@ -34,7 +34,7 @@
                             </div>
                             {% endif %}
                             {% else %}
-                            <div>
+                            <div class="reg-box">
                                 <p>レッスンが登録されていません。</p>
                                 <a href="#lesson-list">登録はこちら</a>
                             </div>
@@ -46,6 +46,7 @@
             <div class="f-center">
                 <div id="lesson-list" class="lesson-list-container">
                     <h2>レッスン一覧</h2>
+                    <p>以下のレッスンから選択してください。</p>
                     <div class="f-center">
                         <div class="list-container">
                             {% for lesson in object_list %}

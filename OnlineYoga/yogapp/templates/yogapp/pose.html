@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'yogapp/header.css' %}">
+    <link rel="stylesheet" href="{% static 'yogapp/pose.css' %}">
+    <title>ポーズ登録</title>
+</head>
+<body>
+    {% include 'yogapp/header.html' %}
+    <div class="f-center">
+        <div class="container">
+            <h1>ポーズ登録</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="field-container">
+                    <p>{{ field.label }}</p>
+                    {{ field }}
+                    {{ field.error }}
+                </div>
+                {% endfor %}
+                <div class="pose-btn">
+                    <button>登録</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="f-center">
+        <div class="container">
+            <h1>ポーズ一覧</h1>
+            <div class="f-center">
+                <div class="pose-list">
+                    {% for pose in object_list %}
+                    <div class="pose">
+                        <h2>{{ pose.name }}</h2>
+                        <p>{{ pose.detail }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
