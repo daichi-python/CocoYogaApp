@@ -1,5 +1,9 @@
-body{
+/* body{
     background-color: #FFDAB9;
+}*/
+
+body{
+    background-image: linear-gradient(rgba(255, 177, 75, 0.26), rgba(255, 165, 91, 0.274)), url(images/wallpaper.jpg);
 }
 
 .page-header{
@@ -28,6 +32,16 @@ body{
 
 .ph-menu li{
     margin-left: 3rem;
+    background: linear-gradient(135deg, rgb(114, 203, 255), rgb(44, 177, 255));
+    padding: 0.4rem 0.8rem;
+    border-radius: 40px;
+    box-shadow: 0.3rem 0.3rem 1em rgba(0, 0, 0, 0.3);
+}
+
+.ph-menu a{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
 }
 
 li{
